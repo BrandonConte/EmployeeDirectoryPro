@@ -171,3 +171,58 @@ async function addEmployee() {
     });
 
 }
+
+function remove(input) {
+    const promptQ = {
+        yes: "Yes",
+        no: "No (Return to employee list)"
+    };
+    inquirer.prompt([
+        {
+            name: "action",
+            type: "list",
+            message: "You must delete an employee using their ID. Do you know the ID?",
+            choices: [promptQ.yes, promptQ.no]
+        }
+    ]).then(answer => {
+        if (input === 'delete' && answer.action === "yes") removeEmployee();
+        else if (input === 'roles' && answer.action === "yes") updateRole();
+        else viewAllEmployees();
+
+
+
+    });
+};
+
+async function removeEmployee() {
+
+    const answer = await inquirer.prompt([
+        {
+            name: "first",
+            type: "input",
+            message: "Enter the employee ID you want to remove:  "
+        }
+    ]);
+
+    connection.query('DELETE FROM employee WHERE ?',
+        {
+            id: answer.first
+        },
+        function (err) {
+            if (err) throw err;
+        }
+    )
+    console.log('Employee removed!');
+    prompt();
+
+};
+
+function askId() {
+    return ([
+        {
+            name: "name",
+            type: "input",
+            message: "What is the employee's ID?:  "
+        }
+    ]);
+};
