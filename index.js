@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
     // Default port
     port: 3306,
     user: 'root',
-    password: 'PassHERE',
+    password: 'Pino1122!',
     database: 'employee_db'
 });
 
@@ -70,3 +70,38 @@ function prompt() {
             }
         });
 }
+
+function viewAllEmployees() {
+    const query = `SELECT employees.id, employees.first_name, employees.last_name, roles.title, department.department_name AS department, roles.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager
+    FROM employees
+    LEFT JOIN employees manager on manager.id = employees.manager_id
+    INNER JOIN roles ON (roles.id = employees.role_id)
+    INNER JOIN department ON (department.id = roles.department_id)
+    ORDER BY employees.id;`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log('\n');
+        console.log('VIEW ALL EMPLOYEES');
+        console.log('\n');
+        console.table(res);
+        prompt();
+    });
+};
+
+function viewAllRoles() {
+    const query = `SELECT roles.title, employees.id, employees.first_name, employees.last_name, department.department_name AS department
+    FROM employees
+    LEFT JOIN roles ON (roles.id = employees.role_id)
+    LEFT JOIN department ON (department.id = roles.department_id)
+    ORDER BY roles.title;`;
+    connection.query(query, (err, res) => {
+        if (err) throw err;
+        console.log('\n');
+        console.log('VIEW EMPLOYEE BY ROLE');
+        console.log('\n');
+        console.table(res);
+        prompt();
+    });
+
+}
+
