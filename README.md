@@ -27,8 +27,8 @@ Clone the GitHub repo with the key above in your command line, then run npm i or
 Within the db folder, change the user and password values in the connection.js file to your own credentials if required.
 
 After npm installation is complete, run mysql in the command line and enter the following:
+  * source db/db.sql
   * source db/schema.sql
-  Only source the seeds file below for reference
   * source db/seeds.sql 
 
 After you source the sql files needed, run `` node index `` in the command line to start the application. 
