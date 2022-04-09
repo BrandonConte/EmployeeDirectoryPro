@@ -45,7 +45,7 @@ After you source the sql files needed, run `` node index `` in the command line 
 ## <a href="#readme-badge"><img id="authors" src="https://github.com/teamjuli0/readme-badges/blob/main/themes/clean-dark/menu-categories/authors.png?raw=true" style="height: 40px"></a>
 
 * [URL of repo](https://github.com/BrandonConte/EmployeeDirectoryPro)
-* [URL of video demo](https://drive.google.com/file/d/1eQLvrbf2AE5uAOa1LerPUTpU37KXTOVg/view?usp=sharing)
+* [URL of video demo](https://drive.google.com/file/d/184zP6e-97SgYDz-GAbcWYClqp5_0MQpg/view?usp=sharing)
 
 ## <a href="#readme-badge"><img id="questions" src="https://github.com/teamjuli0/readme-badges/blob/main/themes/clean-dark/menu-categories/questions-alt.png?raw=true" style="height: 40px"></a>
 
